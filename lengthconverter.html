@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert Lengths</title>
+    <style>
+        body {
+         font-family:Verdana, Geneva, Tahoma, sans-serif;
+          text-align: center; 
+          background-color: honeydew;
+          padding: 40;
+          }
+        .container {
+         margin-top: 100px; 
+         }
+        button {
+         margin: 10px; 
+         padding: 10px 20px 10px 20px;
+         border-radius: 20px;
+         background-color:linen; 
+         border: rgba(241, 156, 201, 0.67) double;
+         }
+         #result{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:x-large;
+         }
+    </style>
+</head>
+<body>
+    <label>Enter number of kms: </label>
+    <input type="text" id="userInput" placeholder="Enter Km"/><br><br>
+    <label>Select the measurement to convert:</label>
+    <select id="inputSelection">
+        <option value="m">Meters</option>
+        <option value="mm">Millimeters</option>
+        <option value="cm">Centimeters</option>
+        <option value="miles">Miles</option>
+        <option value="feet">Feet</option>
+        <option value="yards">Yards</option>
+    </select><br><br>
+    <button onclick="myFunction()">Convert</button>
+    <p id="result"></p>
+    <script>
+        function myFunction() {
+            let km = parseFloat(document.getElementById("userInput").value);
+            let user_option = document.getElementById("inputSelection").value;
+            switch (user_option) {
+                case "m":
+                    let resultOne = km*1000;
+                    document.getElementById("result").innerHTML = km + " kms = " + resultOne + " meters";
+                    break;
+                case "mm":
+                    let resultTwo = km*1000000;
+                    document.getElementById("result").innerHTML = km + " kms = " + resultTwo + " millimeters";
+                    break;
+                case "cm":
+                    let resultThree = km*100000;
+                    document.getElementById("result").innerHTML = km + " kms = " + resultThree + " centimeters";
+                    break;
+                case "miles":
+                    let resultFour = km * 1.609;
+                    document.getElementById("result").innerHTML = km + " kms = " + resultFour.toFixed(5) + " miles";
+                    break;
+                case "feet":
+                    let resultFive = km * 0.0003048;
+                    document.getElementById("result").innerHTML = km + " kms = " + resultFive.toFixed(2) + " feet";
+                    break;
+                case "yards":
+                    let resultSix = km * 0.0009144;
+                    document.getElementById("result").innerHTML = km + " kms = " + resultSix.toFixed(2) + " yards";
+                    break;
+                default:
+                    document.getElementById("result").innerHTML = "Invalid unit selection.";
+            }
+        }
+    </script>
+</body>
+</html>

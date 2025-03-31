@@ -1,0 +1,58 @@
+<html>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            background-color: rgb(196, 243, 149);
+            padding: 40px;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        input {
+            color: rgb(235, 25, 25);
+            border-color: rgb(240, 5, 17);
+            border-width: 3px;
+            border:10px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color:seashell;
+            border-color:gainsboro;
+        }
+        #result {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: x-large;
+        }
+    </style>
+    <body>
+        <h2>Age Calculator</h2>
+        <label>Enter the Date-Of-Birth (Person 1): </label>
+        <input type="date" id="dob1">
+        <br><br>
+        <label>Enter the Date-Of-Birth (Person 2): </label>
+        <input type="date" id="dob2">
+        <br><br>
+        <button onclick="calculateAge()">Calculate Age Difference</button>
+        <p id="result"></p>
+        <script>
+            function calculateAge() {
+                let dobInput1 = document.getElementById("dob1").value;
+                let dobInput2 = document.getElementById("dob2").value;
+                if (!dobInput1 || !dobInput2) {
+                    document.getElementById("result").innerText = "Please enter valid dates.";
+                    return;
+                }
+                let dob1 = new Date(dobInput1);
+                let dob2 = new Date(dobInput2);
+                let yearDiff = Math.abs(dob1.getFullYear() - dob2.getFullYear());
+                let monthDiff = Math.abs(dob1.getMonth() - dob2.getMonth());
+                let dayDiff = Math.abs(dob1.getDate() - dob2.getDate());
+                document.getElementById("result").innerText = 
+                    "Age difference: " + yearDiff + " years, " + monthDiff + " months, and " + dayDiff + " days.";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+      background-color: rgb(170, 229, 235);
+    }
+    .container {
+      margin-top: 50px;
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .calsi {
+      width: 100%;
+      margin: 0 auto;
+    }
+    #inp {
+      width: 100%;
+      padding: 10px;
+      font-size: 24px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color:khaki;
+      color: #040404;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: pink;
+    }
+    #result {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: x-large;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="calsi">
+      <h1>Calculator</h1>
+      <input type="text" id="inp" placeholder="Enter Value...">
+      <div class="btns">
+        <button onclick="AT_add(1)">1</button>
+        <button onclick="AT_add(2)">2</button>
+        <button onclick="AT_add(3)">3</button>
+        <button onclick="AT_add(4)">4</button>
+        <button onclick="AT_add(5)">5</button>
+        <button onclick="AT_add(6)">6</button>
+        <button onclick="AT_add(7)">7</button>
+        <button onclick="AT_add(8)">8</button>
+        <button onclick="AT_add(9)">9</button>
+        <button onclick="AT_add(0)">0</button>
+        <button onclick="AT_add('+')">+</button>
+        <button onclick="AT_add('-')">-</button>
+        <button onclick="AT_add('/')">/</button>
+        <button onclick="AT_add('*')">*</button>
+        <button onclick="AT_add('%')">%</button>
+      <button onclick="exe()">=</button>
+      <button onclick="cancel()">⌫</button>
+      <button onclick="cls()">c</button>
+    </div>
+  </div>
+  <script>
+    var val = document.getElementById("inp");
+
+    function AT_add(v) {
+      val.value += v;
+    }
+
+    function cls() {
+      val.value = "";
+    }
+
+    function exe() {
+      val.value = eval(val.value);
+    }
+
+    function cancel() {
+      val.value = val.value.substr(0, val.value.length - 1);
+    }
+  </script>
+</body>
+</html>

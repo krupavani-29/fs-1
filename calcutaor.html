@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert Lengths</title>
+    <style>
+        body {
+         font-family:Verdana, Geneva, Tahoma, sans-serif;
+          text-align: center; 
+          background-color: honeydew;
+          padding: 40;
+          }
+        .container {
+         margin-top: 100px; 
+         }
+        button {
+         margin: 10px; 
+         padding: 10px 20px 10px 20px;
+         border-radius: 20px;
+         background-color:linen; 
+         border: rgba(241, 156, 201, 0.67) double;
+         }
+         #result{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:x-large;
+         }
+    </style>
+</head>
+<body>
+    <br><br><br><br>
+    <label>Enter number of number1: </label>
+    <input type="text" id="userInput1" placeholder="Enter num 1"/><br><br><br>
+    <label>Enter number of number2: </label>
+    <input type="text" id="userInput2" placeholder="Enter num 2"/><br><br><br>
+    <label>Select the operation:</label>
+    <select id="inputSelection">
+        <option value="+">Addition</option>
+        <option value="*">Multiplication</option>
+        <option value="-">Subtraction</option>
+        <option value="/">Division</option>
+        <option value="%">Modulus</option>
+    </select><br><br>
+
+    <button onclick="myFunction()">Result</button>
+    <p id="result"></p>
+
+    <script>
+        function myFunction() {
+            let num1 = parseFloat(document.getElementById("userInput1").value);
+            let num2 = parseFloat(document.getElementById("userInput2").value);
+            let user_option = document.getElementById("inputSelection").value;
+            switch (user_option) {
+                case "+":
+                    let resultOne = num1+num2;
+                    document.getElementById("result").innerHTML = num1 + " + "+num2+" = " + resultOne;
+                    break;
+
+                case "*":
+                    let resultTwo = num1*num2;
+                    document.getElementById("result").innerHTML = num1 + " * "+num2+" = " + resultTwo;
+                    break;
+
+                case "-":
+                    let resultThree = num1-num2;
+                    document.getElementById("result").innerHTML = num1 + " - "+num2+" = " + resultThree;
+                    break;
+
+                case "%":
+                    let resultFour = num1%num2;
+                    document.getElementById("result").innerHTML = num1 + " % "+num2+" = " + resultFour;
+                    break;
+
+                case "/":
+                    let resultFive = num1/num2;
+                    document.getElementById("result").innerHTML = num1 + " / "+num2+" = " + resultFive;
+                    break;
+
+                default:
+                    document.getElementById("result").innerHTML = "Invalid operation is selected.";
+            }
+        }
+    </script>
+</body>
+</html>

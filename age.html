@@ -1,0 +1,56 @@
+
+<html>
+    <style>
+        body {
+         font-family:Verdana, Geneva, Tahoma, sans-serif;
+          text-align: center; 
+          background-color:rgb(196, 243, 149);
+          padding: 40;
+          }
+        .container {
+         margin-top: 100px; 
+         }
+         imput{
+            color:azure
+         }
+        button {
+         margin: 10px; 
+         padding: 10px 20px 10px 20px;
+         border-radius: 20px;
+         background-color:rgb(36, 177, 238); 
+         border: rgba(22, 6, 244, 0.67) double;
+         }
+         #result{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:x-large;
+         }
+    </style>
+    <body>
+        <h2>Age Calculater</h2>
+        <label>Enter the Date-Of-Birth: </label>
+    <input type="date" id="dob">
+    <br><br>
+<button onclick="calculateAge()">Calculate Age</button>
+<p id="result"></p>
+<script>
+function calculateAge() {
+let dobInput=document.getElementById("dob").value;
+if(!dobInput){
+    document.getElementById("result").innerText="please enter a valid date.";
+    return;
+}
+let dob=new Date(dobInput); 
+let today=new Date();
+
+let age=today.getFullYear()-dob.getFullYear(); 
+let monthDiff =today.getMonth()-dob.getMonth(); 
+let dayDiff =today.getDate()-dob.getDate();
+if (monthDiff<0|| (monthDiff==0 && dayDiff < 0)){
+    age--;
+}
+document.getElementById("result").innerText = "Your age is: "+age+" years  "+monthDiff+" months  "+dayDiff+" days";
+}
+</script>
+
+</body>
+</html>
